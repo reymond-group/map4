@@ -1,0 +1,13 @@
+name: map4
+channels:
+  - defaults
+  - rdkit
+  - tmap
+dependencies:
+  - python=3.6
+  - rdkit
+  - tmap
+  - pip
+  - pip:
+    - faerun
+    - mhfp

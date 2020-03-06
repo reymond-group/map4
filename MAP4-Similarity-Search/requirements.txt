@@ -1,0 +1,15 @@
+
+Flask==1.1.1
+flask_wtf
+flask_restful
+
+gunicorn
+
+mhfp
+
+faerun
+
+coolname
+
+
+

@@ -1,0 +1,194 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <title>MHAP Similarity Search</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <script src='/static/smilesDrawer/dist/smiles-drawer.min.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <style>
+        #divb{
+            text-align: center
+        }
+        .no-border {
+            border: 0;
+            box-shadow: none;
+        }
+
+        .containerpadding {
+            /* padding: 50px 50px 50px 50px; */
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .headerpadding {
+            padding: 30px 30px 30px 30px;
+        }
+
+        .padding {
+            padding: 5px 5px 5px 5px
+        }
+
+        .displayResults {
+            transition: 0.3s;
+            display: inline-block;
+            align-self: stretch;
+            width: 575px;
+            /* height: 630px; */
+            border: 2px;
+            border-style: double;
+            border-color: #ff8d79;
+        }
+
+        /* On mouse-over, add a deeper shadow */
+        .displayResults:hover {
+            box-shadow: 0 16px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .displayResults-query {
+            position: relative;
+            display: inline-block;
+            align-self: stretch;
+            width: 575px;
+            /* height: 630px; */
+            border: 2px;
+            border-style: double;
+            border-color: rgb(175, 188, 199);
+        }
+
+        #bottom {
+            color: #485460;
+            bottom: 0px;
+        }
+
+        #b {
+            color: white;
+            background-color: #485460;
+            align-content: center;
+        }
+
+        #footer {
+            background-color: #EE5A24;
+        }
+
+        #title {
+            background-color: #EE5A24;
+        }
+
+        #writing {
+            color: #485460
+        }
+
+        #my-textarea {
+            display: none;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2 id="title" class="font-awesome lighten-2 text-white headerpadding">
+                <b>{{title}}</b></h2>
+            <div class="containerpadding">
+                <div class="displayResults-query text-center">
+                    <div>&nbsp;</div>
+                    <h5 class="font-awesome padding" id="writing"><b>Query</b></h5>
+                    <canvas id="structure" data-smiles={{query}}></canvas>
+                </div>
+                
+                {% for result in results %}
+                <div class="displayResults text-center">
+                    <h6 class="font-awesome text-unique-color padding" id="writing">See it in {{db}}:
+                        {% for id in result[4] %}
+                        <a href="{{url}}{{id}}" target="_blank" class="card-link">{{id}}</a>
+                        {% endfor %}</h6>
+
+                    <a class="font-awesome text-unique-color padding">{{result[5]}}</a>
+                    
+
+                    <canvas id="structure" data-smiles={{result[1]}}></canvas>
+                    <h6 id="bottom" class="font-awesome text-unique-color padding">Jaccard distance from query
+                        {{result[2]}}</h6>
+                </div>
+                {% endfor %}
+                <div>&nbsp;</div>
+                <div>&nbsp;</div>
+                <textarea id="my-textarea"
+                    class="form-control">{% for result in results %}{{result[0]}} {{result[1]}} {{result[2]}}&#013;&#010;{% endfor %}</textarea>
+            </div>
+            <div id="divb">
+                <a class="btn" type="Submit" id="b">Download Results</a>
+            </div>
+            <div>&nbsp;</div>
+        </div>
+
+        <div>
+            <footer class="page-footer font-small pt-4" id="footer">
+                <div class="container">
+                    <ul class="list-unstyled list-inline text-center">
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-fb mx-1" target="_blank"
+                                href="https://www.facebook.com/gdb.unibe/">
+                                <i class="fa fa-facebook"> </i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="btn-floating btn-tw mx-1" target="_blank"
+                                href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwww.gdb.unibe.ch%2F&ref_src=twsrc%5Etfw&screen_name=reymondgroup&tw_p=followbutton">
+                                <i class="fa fa-twitter"> </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-copyright text-center py-3">© 2018
+                    <a target="_blank" href="http://www.gdb.unibe.ch/"> Reymond Group</a>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+            SmilesDrawer.apply({experimentalSSSR:true});
+            let canvas = document.getElementById('structure');
+        });
+
+        function download() {
+            var text = document.getElementById("my-textarea").value;
+            var blob = new Blob([text], { type: "text/plain" });
+            var anchor = document.createElement("a");
+            anchor.download = "NNs.smi";
+            anchor.href = window.URL.createObjectURL(blob);
+            anchor.target = "_blank";
+            anchor.style.display = "none";
+            document.body.appendChild(anchor);
+            anchor.click();
+            document.body.removeChild(anchor);
+        }
+        var button = document.getElementById('b');
+        button.addEventListener('click', download);
+
+    </script>
+
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/mdb.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Error</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" language="javascript" src="/static/JSME_2017-02-26/jsme/jsme.nocache.js"></script>
+
+    <script src='/static/smilesDrawer/dist/smiles-drawer.min.js'></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+
+    <style>
+        .containerpadding {
+            padding: 50px 50px 50px 50px;
+        }
+
+        .headerpadding {
+            padding: 30px 30px 30px 30px;
+        }
+
+        .padding {
+            padding: 15px 10px 10px 15px
+        }
+
+        .maincontainer {
+            flex-direction: column;
+            height: 100%;
+            display: flex;
+            align-items: stretch;
+            justify-content: center;
+        }
+
+        .filler {
+            flex-grow: 1;
+        }
+
+        #b {
+            background-color: #485460
+        }
+
+        #title {
+            background-color: #EE5A24
+        }
+
+        #footer {
+            background-color: #EE5A24
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class='maincontainer'>
+
+        <div id="title" class="font-awesome lighten-2 text-white headerpadding">
+            <div>
+                <h1><b>    </b>
+            </div>
+            <div><small>   </small></div>
+            </h1>
+        </div>
+
+
+        <div class="containerpadding">
+
+
+            <form id="form" action="/wait" target="_blank" method="POST" autocomplete="off">
+
+
+
+
+                <div class="modal-body row">
+
+                    <div class="col-md-8">
+
+                        <h4>Sorry! rdkit has failed with the query SMILES &nbsp;&nbsp;</h>
+                            <div>&nbsp;</div>
+                            
+
+                    </div>
+                </div>
+        </div>
+        </form>
+
+
+        <div class="filler"></div>
+
+        <footer class="page-footer font-small pt-4" id="footer">
+            <div class="container">
+
+                <ul class="list-unstyled list-inline text-center">
+
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-fb mx-1" target="_blank" href="https://www.facebook.com/gdb.unibe/">
+                            <i class="fa fa-facebook"> </i>
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="btn-floating btn-tw mx-1" target="_blank"
+                            href="https://twitter.com/intent/follow?original_referer=http%3A%2F%2Fwww.gdb.unibe.ch%2F&ref_src=twsrc%5Etfw&screen_name=reymondgroup&tw_p=followbutton">
+                            <i class="fa fa-twitter"> </i>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="footer-copyright text-center py-3">© 2018
+                <a target="_blank" href="http://www.gdb.unibe.ch/"> Reymond Group</a>
+            </div>
+        </footer>
+    </div>
+
+    <script type="text/javascript" src="/static/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/static/js/popper.min.js"></script>
+    <script type="text/javascript" src="/static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/js/mdb.min.js"></script>
+</body>
+
+</html>
