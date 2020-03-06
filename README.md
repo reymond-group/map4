@@ -31,7 +31,7 @@ Or import the MAP4Calculator class in your python file (see `test.py`)
 Draw a structure or paste its SMILES, or write a natural peptides linear sequence.
 Search for its analogs in the MAP4 or MHFP6 space of ChEMBL, of the Human Metabolome Database (HMDB), or of the 'below 50 residues subset' of SwissProt.
 
-The MAP4 search can be found at: http://mhap-search.gdb.tools/.
+The MAP4 search can be found at: http://map-search.gdb.tools/.
 
 The code of the MAP4 similarity search can be found in this repository folder `MAP4-Similarity-Search`
 
