@@ -34,7 +34,7 @@ def calc_map(mol):
         tmap VectorUint -- minhashed fingerprint
     """
 
-    MAP4 = MAP4Calculator(dimensions=512)
+    MAP4 = MAP4Calculator(dimensions=512 )
     fp = MAP4.calculate(mol)
     
     return fp

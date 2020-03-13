@@ -36,7 +36,7 @@ The MAP4 search can be found at: http://map-search.gdb.tools/.
 The code of the MAP4 similarity search can be found in this repository folder `MAP4-Similarity-Search`
 
 To run the app locally:
-- Download the MAP4SearchData at `link to zenodo`
+- Download the MAP4SearchData [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3671214.svg)](https://doi.org/10.5281/zenodo.3671214)
 - Run `docker run -p 8080:5000 --mount type=bind,target=/MAP4SearchData,source=/your/absolut/path/MAP4SearchData  --restart always --name mapsearch alicecapecchi/map-search:latest`
 - The MAP4 similarity search will be running at http://0.0.0.0:8080/
 
