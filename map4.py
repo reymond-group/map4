@@ -108,7 +108,7 @@ class MAP4Calculator:
                     shingle_dict[shingle] += 1
                     shingle += '|' + str(shingle_dict[shingle])
 
-                atom_pairs.append(shingle)
+                atom_pairs.append(shingle.encode('utf-8'))
         return list(set(atom_pairs))
 
 
