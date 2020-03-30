@@ -13,11 +13,18 @@ To use the MAP4 fingerprint:
 - `git clone <repo url>`
 - `cd <repo folder>`
 
-A Conda environment.yml is supplied with all the required libraries:
+To install map4 trough Conda:
 - `conda env create -f environment.yml`
 - `conda activate map4`
 
+To install map4 trough pip:
+- install RDKit and tmap:
+   - https://github.com/reymond-group/tmap
+   - https://github.com/rdkit/rdkit
+- `git+https://github.com/reymond-group/map4'
+
 Run the fingerprint from terminal
+- `cd map4`
 - `python map4.py -i smilesfile.smi -o outputfile`
 
 Or import the MAP4Calculator class in your python file (see `test.py`)

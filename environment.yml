@@ -11,3 +11,4 @@ dependencies:
   - pip:
     - faerun
     - mhfp
+    - git+https://github.com/reymond-group/map4
