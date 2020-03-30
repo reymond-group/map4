@@ -21,7 +21,7 @@ To install map4 trough pip:
 - install RDKit and tmap:
    - https://github.com/reymond-group/tmap
    - https://github.com/rdkit/rdkit
-- `git+https://github.com/reymond-group/map4'
+- `pip install git+https://github.com/reymond-group/map4`
 
 Run the fingerprint from terminal
 - `cd map4`
