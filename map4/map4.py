@@ -156,17 +156,18 @@ def parse_args():
     parser.add_argument("--input-path", "-i", help="", type=str, required=True)
     parser.add_argument("--output-path", "-o", help="", type=str, required=True)
     parser.add_argument("--dimensions", "-d", help="Number of dimensions of the MinHashed fingerprint [DEFAULT: 1024]",
-                        type=int, default=1024)
+                        type=int, default=1024, choices = [128, 512, 1024, 2048])
     parser.add_argument("--radius", "-r", help="Radius of the fingerprint [DEFAULT: 2]",
                         type=int, default=2)
     parser.add_argument("--is-counted", help="The fingerprint stores all shingles.",
                         action="store_true", default=False)
     parser.add_argument("--is-folded", help="The fingerprint is folded with modulo (instead of MinHash).",
                         action="store_true", default=False)
-    parser.add_argument("--clean-mols", help="Molecules will be recanonicalized and cleaned.",
-                        action="store_true", default=False)
-    parser.add_argument("--delimiter", help="Delimiter used for both the input and output files", type=str, default="\t")
-    parser.add_argument("--fp-delimiter", help="Delimiter used between the numbers in the fingerprint output", type=str, default=";")
+    parser.add_argument("--clean-mols", help="Molecules will be canonicalized, cleaned, and chirality information will be removed, \
+    NECESSARY FOR FINGERPRINT CONSISTENCY ACROSS DIFFERENT SMILES INPUT [DEFAULT: True].",
+                        type=lambda x: (str(x).lower() == "true"), default="True", metavar = "True/False")
+    parser.add_argument("--delimiter", help="Delimiter used for both the input and output files [DEFAULT: \\t]", type=str, default="\t")
+    parser.add_argument("--fp-delimiter", help="Delimiter used between the numbers in the fingerprint output [DEFAULT: ;]", type=str, default=";")
     parser.add_argument("--batch-size", "-b", help="Numbers of molecules to process in a batch [DEFAULT: 500]", type=int, default=500)
     return parser.parse_args()
 
