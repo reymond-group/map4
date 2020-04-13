@@ -137,7 +137,7 @@ def main():
         lines, mols = zip(*parsed_lines)
         fingerprints = calculator.calculate_many(mols)
         for line, mol, fingerprint in zip(lines, mols, fingerprints):
-            if fingerprint:
+            if len(fingerprint):
                 fp_str = args.fp_delimiter.join(str(v) for v in fingerprint)
                 output_file.write("{}{}{}{}{}\n".format(line, args.delimiter, to_smiles(mol), args.delimiter, fp_str))
 
