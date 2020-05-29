@@ -1,3 +1,7 @@
+Folder description:
+- `Extended-Benchmark`: compounds and query lists used for the peptide benchmark
+- `MAP4-Similarity-Search`: source code for the similarity search app
+- `map4`: MAP4 fingerprint source code
 
 # MAP fingerprint - Design and Documentation  
 
@@ -29,10 +33,7 @@ Run the fingerprint from terminal
 
 Or import the MAP4Calculator class in your python file (see `test.py`)
 
-<pre>
 
-
-</pre>
 # MAP4 - Similarity Search of ChEMBL, Human Metabolome, and SwissProt
 
 Draw a structure or paste its SMILES, or write a natural peptides linear sequence.
@@ -47,10 +48,6 @@ To run the app locally:
 - Run `docker run -p 8080:5000 --mount type=bind,target=/MAP4SearchData,source=/your/absolut/path/MAP4SearchData  --restart always --name mapsearch alicecapecchi/map-search:latest`
 - The MAP4 similarity search will be running at http://0.0.0.0:8080/
 
-<pre>
-
-
-</pre>
 
 # Extended Benchmark
 
