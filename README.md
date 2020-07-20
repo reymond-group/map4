@@ -2,6 +2,7 @@ Folder description:
 - `Extended-Benchmark`: compounds and query lists used for the peptide benchmark
 - `MAP4-Similarity-Search`: source code for the similarity search app
 - `map4`: MAP4 fingerprint source code
+ 
 
 # MAP fingerprint - Design and Documentation  
 
@@ -33,6 +34,7 @@ Run the fingerprint from terminal
 
 Or import the MAP4Calculator class in your python file (see `test.py`)
 
+### Please note that the similarity/dissimilarity between two MinHashed fingerprints cannot be assessed with "standard" Jaccard, Manhattan, or Cosine functions. Due to MinHashing, the order of the features matters and the distance cannot be calculated "feature-wise". There is a well written blog post that explains it: https://aksakalli.github.io/2016/03/01/jaccard-similarity-with-minhash.html. Therefore, a custom kernel/loss function needs to be implemented for machine learning applications of MAP4 (e.g. using the distance function found in the test.py script).
 
 # MAP4 - Similarity Search of ChEMBL, Human Metabolome, and SwissProt
 
