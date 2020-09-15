@@ -21,6 +21,7 @@ class MAP4Calculator:
         """
         MAP4 calculator class
         """
+        self.dimensions = dimensions
         self.radius = radius
         self.is_counted = is_counted
         self.is_folded = is_folded
@@ -70,7 +71,7 @@ class MAP4Calculator:
 
     def _fold(self, pairs):
         fp_hash = self.encoder.hash(set(pairs))
-        return self.encoder.fold(fp_hash)
+        return self.encoder.fold(fp_hash, self.dimensions)
 
     def _get_atom_envs(self, mol):
         atoms_env = {}
