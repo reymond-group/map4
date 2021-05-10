@@ -15,7 +15,7 @@ The resulting list of Shingles is hashed using the unique mapping `SHA-1` to a s
 ![MihHash](https://cloud.gdb.tools/s/nLjQKTcHPLdpnxJ/preview)
 
 To use the MAP4 fingerprint:
-- `git clone https://github.com/reymond-group/map4.git`
+- `git clone https://github.com/reymond-group/map4.git@v1.0`
 - `cd map4`
 
 To install map4 trough Conda:
@@ -26,7 +26,7 @@ To install map4 trough pip:
 - install RDKit and tmap:
    - https://github.com/reymond-group/tmap
    - https://github.com/rdkit/rdkit
-- `pip install git+https://github.com/reymond-group/map4`
+- `pip install git+https://github.com/reymond-group/map4@v1.0`
 
 Run the fingerprint from terminal
 - `cd map4`
